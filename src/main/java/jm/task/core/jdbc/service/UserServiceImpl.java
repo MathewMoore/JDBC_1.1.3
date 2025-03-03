@@ -2,17 +2,17 @@ package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    UserDaoJDBCImpl userDao;
+    private final UserDaoJDBCImpl userDao;
+
     {
         try {
-            userDao = new UserDaoJDBCImpl(new Util());
+            userDao = new UserDaoJDBCImpl();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
